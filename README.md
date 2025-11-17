@@ -16,6 +16,13 @@
 
 Este projeto é uma aplicação web desenvolvida em **ASP.NET Core 6** com **Razor Pages**, como parte de um exercício de avaliação técnica. A aplicação implementa um sistema CRUD (Create, Read, Update, Delete) completo para gerenciar contatos.
 
+
+## 📋 Requisitos e Documentação
+
+Os requisitos completos do teste técnico (prova) estão detalhados no documento oficial:
+* **[Backend Developer Coding Assessment.pdf](https://github.com/marcelogmoura/GitHubMonitor.API/blob/main/Pdf/Backend%20Developer%20Coding%20Assessment.pdf)**
+
+
 ## ✨ Funcionalidades
 
 O projeto atende a todos os requisitos solicitados:
@@ -129,6 +136,11 @@ Senha: admin123
 ### 🧪 Publicação
 
 ![Publicação em andamento](https://i.postimg.cc/x160V9q8/Screenshot-15.jpg)
+
+
+### 🧪 Lista
+
+![Listagem](https://i.postimg.cc/RhmrnYN3/Screenshot-9.jpg)
 
 
 ### 🧪 Testes de Integração
