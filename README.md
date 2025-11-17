@@ -87,6 +87,11 @@ Abra o arquivo appsettings.Development.json e atualize a string de conexão Mari
 }
 ```
 
+### 🖥️ Status e Persistência de Dados
+
+Após executar o `docker-compose up`, você pode verificar o status dos contêineres e a persistência dos dados.
+
+
 ## 4. Executar a Aplicação
 A aplicação está configurada para inicializar o banco de dados automaticamente ao iniciar. Isso inclui:
 
@@ -113,11 +118,28 @@ dotnet restore
 # Executa o projeto
 dotnet run
 
-🔑 Autenticação
+### 🔑 Autenticação e Autorização
+
 Para acessar as áreas restritas (Adicionar, Ver, Editar, Deletar), utilize o usuário estático que é criado automaticamente:
 
 Usuário: admin@admin.com
 Senha: admin123
+
+
+### 🧪 Publicação
+
+![Publicação em andamento](https://i.postimg.cc/x160V9q8/Screenshot-15.jpg)
+
+
+### 🧪 Testes de Integração
+
+O projeto inclui testes de integração para validar as funcionalidades de ponta a ponta. Eles garantem que o fluxo de login e a busca de repositórios com o token estão funcionando como esperado.
+
+![Resultado dos Testes de Integração](https://i.postimg.cc/VkqYGjPx/Screenshot-1.jpg)
+
+**Execute os testes:**
+
+No Visual Studio, vá para `Teste > Gerenciador de Testes` e clique em **"Executar Todos os Testes"**.
 
 
 👨‍💻 **Autor:** Marcelo Moura 
