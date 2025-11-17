@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using ContactManagement.Data;
+using Microsoft.EntityFrameworkCore;
+
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,10 +25,27 @@ builder.Services.AddRazorPages();
 var app = builder.Build();
 
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var dbContext = services.GetRequiredService<ApplicationDbContext>();
+
+        dbContext.Database.Migrate();
+    }
+    catch (Exception ex)
+    {        
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Ocorreu um erro ao aplicar as migrações do banco de dados.");
+        throw; 
+    }
+}
+
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-
     app.UseHsts();
 }
 

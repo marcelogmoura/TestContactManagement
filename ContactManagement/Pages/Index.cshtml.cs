@@ -1,20 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ContactManagement.Data;
+using ContactManagement.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactManagement.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        
+        public IndexModel(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public void OnGet()
-        {
+        
+        public IList<Contact> Contacts { get; set; } = new List<Contact>();
 
+        
+        public async Task OnGetAsync()
+        {
+            Contacts = await _context.Contacts.ToListAsync();
         }
     }
 }
