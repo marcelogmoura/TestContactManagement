@@ -11,8 +11,8 @@ namespace ContactManagement.Data
         {
         }
 
-        
-        public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<Contact> Contacts { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
