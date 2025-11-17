@@ -3,9 +3,11 @@ using ContactManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ContactManagement.Pages
 {
+    [Authorize]
     public class DetailsModel : PageModel
     {
         private readonly ApplicationDbContext _context;
