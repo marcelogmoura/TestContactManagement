@@ -16,9 +16,9 @@
     <thead class="thead-dark">
         <tr>
             <th>Nome</th>
-            <th>Telefone (Contato)</th>
+            <th>Telefone </th>
             <th>E-mail</th>
-            <th>Ações</th>
+            <th class="text-center">Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
                     <td>@contact.Name</td>
                     <td>@contact.Phone</td>
                     <td>@contact.Email</td>
-                    <td>
+                    <td class="text-center">
                         <a href="/Details?id=@contact.Id" class="btn btn-info btn-sm">Ver</a>
                         <a href="/Edit?id=@contact.Id" class="btn btn-warning btn-sm">Editar</a>
                         <a href="/Delete?id=@contact.Id" class="btn btn-danger btn-sm">Deletar</a>
