@@ -11,32 +11,30 @@
     <div class="col-md-6">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <input type="hidden" asp-for="Contact.Id" />
-
-            <input type="hidden" asp-for="Contact.IsDeleted" />
-
+                        
+            <input type="hidden" asp-for="Input.Id" />
+                        
             <div class="form-group mb-3">
-                <label asp-for="Contact.Name" class="control-label"></label>
-                <input asp-for="Contact.Name" class="form-control" />
-                <span asp-validation-for="Contact.Name" class="text-danger"></span>
+                <label asp-for="Input.Name" class="control-label">Nome</label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
             </div>
-
+                        
             <div class="form-group mb-3">
-                <label asp-for="Contact.Phone" class="control-label">Telefone (Contato)</label>
-                <input asp-for="Contact.Phone" class="form-control" />
-                <span asp-validation-for="Contact.Phone" class="text-danger"></span>
+                <label asp-for="Input.Phone" class="control-label">Telefone (Contato)</label>
+                <input asp-for="Input.Phone" class="form-control" placeholder="Apenas 9 dígitos" />
+                <span asp-validation-for="Input.Phone" class="text-danger"></span>
             </div>
-
+                        
             <div class="form-group mb-3">
-                <label asp-for="Contact.Email" class="control-label">E-mail</label>
-                <input asp-for="Contact.Email" class="form-control" />
-                <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                <label asp-for="Input.Email" class="control-label">E-mail</label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Salvar Alterações" class="btn btn-primary" />
-                <a href="/" class="btn btn-secondary">Cancelar</a>
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-secondary">Voltar para Lista</a>
             </div>
         </form>
     </div>
