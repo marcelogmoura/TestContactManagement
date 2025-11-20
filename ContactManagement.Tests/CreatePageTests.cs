@@ -1,6 +1,7 @@
 using ContactManagement.Data;
 using ContactManagement.Models;
 using ContactManagement.Pages;
+using ContactManagement.Models.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -54,13 +55,13 @@ namespace ContactManagement.Tests
                         
             var pageModel = CreatePageModel(context);
                         
-            pageModel.Contact = new Contact
+            pageModel.Input = new ContactDto
             {               
                 Phone = "123456789",
                 Email = "test@test.com"
             };
                         
-            pageModel.ModelState.AddModelError("Contact.Name", "O nome deve ter entre 5 e 100 caracteres.");
+            pageModel.ModelState.AddModelError("Input.Name", "O nome deve ter entre 5 e 100 caracteres.");
 
             var result = await pageModel.OnPostAsync();
             
