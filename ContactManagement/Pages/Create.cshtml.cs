@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using ContactManagement.Models.Dtos;
 
 namespace ContactManagement.Pages
 {
@@ -18,35 +19,56 @@ namespace ContactManagement.Pages
         }
         
         [BindProperty]
-        public Contact Contact { get; set; } = new();
+        public ContactDto Input { get; set; } = new();
                 
         public IActionResult OnGet()
         {
             return Page();
         }
-                
+
+        
+
         public async Task<IActionResult> OnPostAsync()
         {
             
-            if (await _context.Contacts.AnyAsync(c => c.Email == Contact.Email))
+            if (await _context.Contacts.AnyAsync(c => c.Email == Input.Email))
             {
-                ModelState.AddModelError("Contact.Email", "Este e-mail já está cadastrado.");
+                ModelState.AddModelError("Input.Email", "Este e-mail já está cadastrado.");
             }
-            if (await _context.Contacts.AnyAsync(c => c.Phone == Contact.Phone))
+            if (await _context.Contacts.AnyAsync(c => c.Phone == Input.Phone))
             {
-                ModelState.AddModelError("Contact.Phone", "Este telefone (contato) já está cadastrado.");
+                ModelState.AddModelError("Input.Phone", "Este telefone já está cadastrado.");
             }
 
             
             if (!ModelState.IsValid)
             {
-                return Page(); 
+                return Page();
             }
 
             
-            _context.Contacts.Add(Contact);
-            await _context.SaveChangesAsync();
-                        
+            var newContact = new Contact
+            {
+                Name = Input.Name,
+                Phone = Input.Phone,
+                Email = Input.Email,
+                IsDeleted = false
+            };
+
+            _context.Contacts.Add(newContact);
+
+            
+            try
+            {
+                await _context.SaveChangesAsync(); 
+            }
+            catch (DbUpdateException ex)
+            {          
+                ModelState.AddModelError(string.Empty, "Erro ao salvar o contato. Já existe um registro com o mesmo e-mail ou telefone informado.");
+                          
+                return Page();
+            }
+
             return RedirectToPage("./Index");
         }
     }

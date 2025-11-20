@@ -19,8 +19,8 @@ Este projeto é uma aplicação web desenvolvida em **ASP.NET Core 6** com **Raz
 
 ## 📋 Requisitos e Documentação
 
-Os requisitos completos do teste técnico (prova) estão detalhados no documento oficial:
-* **[Backend Developer Coding Assessment.pdf](https://github.com/marcelogmoura/GitHubMonitor.API/blob/main/Pdf/Backend%20Developer%20Coding%20Assessment.pdf)**
+Os requisitos completos do teste técnico estão detalhados no documento a seguir:
+* **[Enunciado](https://github.com/marcelogmoura/TestContactManagement/blob/main/Enunciado/Exerc%C3%ADcio%20.NET%20Web%20V2.docx)**
 
 
 ## ✨ Funcionalidades
@@ -66,7 +66,7 @@ Siga estes passos para configurar e executar a aplicação localmente.
 ### 2. Clonar o Repositório
 
 ```bash
-git clone [https://github.com/marcelogmoura/TestContactManagement]
+git clone https://github.com/marcelogmoura/TestContactManagement
 cd ContactManagement
 ```
 
@@ -145,13 +145,26 @@ Senha: admin123
 
 ### 🧪 Testes de Integração
 
-O projeto inclui testes de integração para validar as funcionalidades de ponta a ponta. Eles garantem que o fluxo de login e a busca de repositórios com o token estão funcionando como esperado.
+O projeto inclui testes de integração para validar as funcionalidades de ponta a ponta. Eles garantem que o fluxo de login e as operações de CRUD de contatos estão funcionando como esperado.
 
 ![Resultado dos Testes de Integração](https://i.postimg.cc/VkqYGjPx/Screenshot-1.jpg)
 
 **Execute os testes:**
 
 No Visual Studio, vá para `Teste > Gerenciador de Testes` e clique em **"Executar Todos os Testes"**.
+
+
+## 🚀 Melhorias Pós-Entrega
+
+Após a submissão oficial do teste, continuei refinando o projeto para aplicar melhores práticas de arquitetura e segurança.
+
+### ✅ Implementado (v1.1)
+- **Refatoração com DTOs:** Implementação de *Data Transfer Objects* (DTOs) nos fluxos de **criação** e **edição** de contatos. Isso desacopla a camada de persistência da camada de apresentação, garantindo maior segurança no tráfego de dados e facilitando validações futuras.
+  - *Commit referência:* `ab8cdec`
+
+### 🚧 Próximos Passos
+- Preparando novas melhorias de validação e tratamento de erros.
+
 
 
 👨‍💻 **Autor:** Marcelo Moura 
